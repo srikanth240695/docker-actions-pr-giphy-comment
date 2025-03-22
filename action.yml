@@ -11,6 +11,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    - ${{ inputs.github_token }}
-    - ${{ input.giphy-api-key }}
+  args:
+    - ${{ inputs.github-token }}
+    - ${{ inputs.giphy-api-key }}
+
