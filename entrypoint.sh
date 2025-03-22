@@ -17,7 +17,7 @@ gif_url=$(echo "$giphy_response" | jq --raw-output .data.images.downsized.url)
 echo GIPHY_URL - $gif_url
 
 # Create a Comment with the GIF on the Pull Request
-comment_response=$(curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" \
+comment_response=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "Accept: application/vnd.github.v3+json" \
   -d "{\"body\": \"![GIF]($gif_url) \n Thank you for this contribution \n [GIF]($gif_url) \"}" \
   https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$pull_request_number/comments)
